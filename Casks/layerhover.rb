@@ -12,10 +12,11 @@ cask "layerhover" do
   app "Layerhover/Layerhover.app"
 
   # Apple 개발자 인증서로 서명하지 않은 앱이라, 내려받을 때 붙는 격리 표시를 지워야 열린다.
-  postflight do
-    system_command "/usr/bin/xattr",
-                   args:         ["-dr", "com.apple.quarantine", "#{appdir}/Layerhover.app"],
-                   must_succeed: false
+  postflight_steps(default_base: :appdir) do
+    run "/usr/bin/xattr",
+        args:           ["-dr", "com.apple.quarantine", "{{appdir}}/Layerhover.app"],
+        writable_paths: ["Layerhover.app"],
+        must_succeed:   false
   end
 
   uninstall quit: "app.layerhover.Layerhover"
