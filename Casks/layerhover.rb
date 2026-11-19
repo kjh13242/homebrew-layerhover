@@ -1,6 +1,6 @@
 cask "layerhover" do
-  version "1.6.0"
-  sha256 "74590bb6c33fa0f1e6ef1ed0e14fecec44c9db2f6e42e8c2ffb67bfd9a8b7b9e"
+  version "1.6.1"
+  sha256 "0d0955cf9e50d4857996fb2f26634ca140d4ef7fc9080ce8d94b982b66b1f294"
 
   url "https://github.com/kjh13242/layerhover/releases/download/v#{version}/Layerhover.zip"
   name "Layerhover for Figma"
@@ -8,6 +8,8 @@ cask "layerhover" do
   homepage "https://github.com/kjh13242/layerhover"
 
   depends_on macos: :ventura
+  # 1.6.1부터 앱이 스스로 업데이트한다 (brew upgrade 가 따로 덮어쓰지 않도록)
+  auto_updates true
 
   app "Layerhover/Layerhover.app"
 
@@ -32,7 +34,8 @@ cask "layerhover" do
     Layerhover를 처음 열면 손쉬운 사용 권한을 허용해야 합니다:
       시스템 설정 > 개인정보 보호 및 보안 > 손쉬운 사용 > Layerhover 켜기
 
-    업데이트한 뒤에는 권한을 다시 허용해야 할 수 있습니다:
+    1.6.1부터는 앱이 스스로 업데이트하고, 업데이트해도 권한이 유지됩니다.
+    1.6.0 이하에서 올라올 때만 권한을 한 번 다시 허용해야 할 수 있습니다:
       tccutil reset Accessibility app.layerhover.Layerhover
       open #{appdir}/Layerhover.app
   EOS
