@@ -1,6 +1,6 @@
 cask "layerhover" do
-  version "1.8.0"
-  sha256 "38bac1f64f57b609eb8b84348d4c9f8bce5ad6595645c511a4e0e1999b463548"
+  version "1.9.0"
+  sha256 "2c531ca5dd6c6c72fa884fa434b45714af99b09f373389b722dad6f165a64039"
 
   url "https://github.com/kjh13242/layerhover/releases/download/v#{version}/Layerhover.zip"
   name "Layerhover for Figma"
